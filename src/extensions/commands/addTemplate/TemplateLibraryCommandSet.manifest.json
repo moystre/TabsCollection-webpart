@@ -1,0 +1,24 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx/command-set-extension-manifest.schema.json",
+
+  "id": "f39076f4-51d8-4fec-9d4c-885f25246efb",
+  "alias": "TemplateLibraryCommandSet",
+  "componentType": "Extension",
+  "extensionType": "ListViewCommandSet",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+
+  "items": {
+    "ADD_WORD_TEMPLATE": {
+      "title": { "default": "New Word template", "da-dk": "Ny Word skabelon" },
+      "iconImageUrl": "https://static2.sharepointonline.com/files/fabric/assets/brand-icons/document/svg/docx_16x1.svg",
+      "type": "command"
+    },
+    "ADD_EXCEL_TEMPLATE": {
+      "title": { "default": "New Excel template", "da-dk": "Ny Excel skabelon" },
+      "iconImageUrl": "https://static2.sharepointonline.com/files/fabric/assets/brand-icons/document/svg/xlsx_16x1.svg",
+      "type": "command"
+    }
+  }
+}

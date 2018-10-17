@@ -1,0 +1,7 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/deploy-azure-storage.schema.json",
+  "workingDir": "./temp/deploy/",
+  "account": "wp365development",
+  "container": "workpointui",
+  "accessKey": "mmBftnfwqO4WWJpSYNmUlUP4f0XaT+lYDqEaV9Fuc27lB/oclC8eCU0y1fK6OBnDppVCqCGTSB2Ga1CdohFL5g=="
+}

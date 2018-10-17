@@ -1,0 +1,9 @@
+@import './Base.module.scss';
+
+.breadcrumbMenu {
+  @extend %navigationBarMenuGroup;
+
+  flex-flow: row nowrap;
+  border-right: 1px solid $navbarBorderColor;
+  flex: 0 0 auto;
+}

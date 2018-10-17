@@ -1,0 +1,136 @@
+@import './Base.module.scss';
+
+.toolMenu {
+  font-size: $navbarFontSize;
+  position: relative;
+  height: 36px;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+  margin-left: auto;
+  margin-right: 0;
+  
+  // Were not interested in letting tool items overflow the toolMenu, as they must remain hidden when wrapped. We use UI Fabric Layers to show them instead. See <ContextMenu> component for instance.
+  overflow: hidden;
+
+  flex: 0 1 auto;
+}
+
+.toolsContainer {
+  display: none;
+  justify-content: flex-end;
+  align-items: stretch;
+  align-content: flex-start;
+  flex-flow: row wrap-reverse;
+  position: relative;
+  height: 36px;
+
+  flex: 0 1 auto;
+
+  @include largerthantablet {
+    display: inline-flex;
+  }
+}
+
+.horizontalBaseItem {
+  @extend %flexInline;
+  white-space: nowrap;
+  position: relative;
+  user-select: none;
+  text-decoration: none;
+
+  .iconAndText {
+    padding: 0 8px 0 8px;
+  }
+}
+
+.horizontalTool {
+  @extend .horizontalBaseItem;
+  user-select: none;
+}
+
+.verticalBaseItem {
+  @extend %flex;
+  white-space: nowrap;
+  position: relative;
+  user-select: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out;
+
+  &:hover {
+    background-color: $highlightedBackground;
+    transition: background-color 0.1s ease-out;
+  }
+
+  &:active {
+    background-color: $highlightedBackgroundAccent;
+  }
+
+  .iconAndText {
+    padding: 8px 15px 10px;
+  }
+}
+
+.verticalTool {
+  @extend .verticalBaseItem;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.iconAndText {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.notAllowed {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.toolText {
+  @extend %navigationItemText;
+}
+
+.remainingTools {
+  @extend .horizontalTool;
+  flex: 0 0 auto;
+}
+
+.itemContent {
+  @extend %flex;
+  width: 100%;
+  height: 100%;
+  padding: 8px 30px 10px 15px;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out;
+
+  &:hover {
+    background-color: $highlightedBackground;
+    transition: background-color 0.1s ease-out;
+  }
+
+  &:active {
+    background-color: $highlightedBackgroundAccent;
+  }
+}
+  
+.showMore {
+  width: 30px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-out;
+  font-size: 0.7em;
+
+  &:hover {
+    background-color: $highlightedBackgroundAccentDark;
+  }
+}

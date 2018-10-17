@@ -1,0 +1,72 @@
+@import './Base.module.scss';
+
+
+/**********************************************************************************************
+  TODO: When office-ui-fabric-react is updated we will be able to style components individually
+***********************************************************************************************
+.callout {
+  background-color: $foldoutBackgroundColor;
+  box-shadow: #b1b1b1 0px 0px 16px;
+}
+**************/
+
+.root {
+  font-size: $baseFontSize;
+  font-family: $baseFontFamily;
+  animation: none;
+
+  // Counteract pushing down of elements in CallOut
+  margin-top: -1px;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+/**************************************************************************
+  On top element styles (the thing you clicked on
+**************************************************************************/
+
+.layerContent {
+  font-size: $navbarFontSize;
+}
+
+.onTopElement {
+  white-space: nowrap;
+  position: relative;
+  user-select: none;
+  text-decoration: none;
+  display: flex;
+}
+
+.clickableOnTopElement {
+  @extend .onTopElement;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $highlightedBackground;
+    transition: background-color 0.1s ease-out;
+  }
+
+  &:active {
+    background-color: $highlightedBackgroundAccent;
+  }
+}
+
+.iconAndText {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 8px 15px 10px;
+  white-space: nowrap;
+
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.text {
+  display: inline;
+  color: $navbarFontSecondaryColor;
+  font-weight: 500;
+}

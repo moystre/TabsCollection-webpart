@@ -1,0 +1,27 @@
+// This file should match the rules section of the './config/tslint.json' file, which is in a different wrapper format.
+// This is only usable during development, making sure the build tslint taks and the developing phase tslinting are equal.
+{
+  "rules": {
+    "class-name": false,
+    "export-name": false,
+    "forin": false,
+    "label-position": false,
+    "member-access": true,
+    "no-arg": false,
+    "no-console": false,
+    "no-construct": false,
+    "no-duplicate-variable": true,
+    "no-eval": false,
+    "no-internal-module": true,
+    "no-shadowed-variable": true,
+    "no-switch-case-fall-through": true,
+    "no-unused-expression": true,
+    "no-use-before-declare": true,
+    "semicolon": true,
+    "trailing-comma": false,
+    "typedef": [true, "call-signature", "parameter", "member-variable-declaration"],
+    "typedef-whitespace": false,
+    "variable-name": false,
+    "whitespace": false
+  }
+}

@@ -1,0 +1,61 @@
+@import './Base.module.scss';
+
+.entityDetails {
+  padding: 10px 15px;
+  color: $panelFontPrimaryColor;
+  
+  columns: 4 140px;
+  column-gap: 4em;
+  column-rule: 1px dotted $panelBorderColor;
+}
+
+.row {
+  margin-top: 0;
+  margin-bottom: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.label {
+  color: inherit;
+}
+
+.value {
+  font-style: italic;
+  padding-left: 5px;
+}
+
+.noValue {
+  @extend .value;
+  color: $panelFontSecondaryColor;
+}
+
+.valueLink {
+  @extend .value;
+  text-decoration: none;
+  transition: color 0.15s ease-out;
+  color: $panelFontPrimaryColor;
+  
+  &:hover {
+    color: $panelFontHighlightColor;
+  }
+}
+
+.linkContainer a {
+  @extend .valueLink;
+}
+
+.facepileStyle {
+  display: inline-block;
+  margin-left: 5px;
+
+  :global {
+    .ms-Facepile-itemContainer {
+      display: inline-flex;
+    }
+  }
+}
+
+.fullName {
+  @extend .value;
+}

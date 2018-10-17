@@ -1,0 +1,55 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "customActions": {
+        "0ddf279d-6a54-46ef-aab5-6bdca1a58ae3": {
+          "location": "ClientSideExtension.ListViewCommandSet.CommandBar"
+        }
+      }
+    },
+    "siteManagement": {
+      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "customActions": {
+        "0ddf279d-6a54-46ef-aab5-6bdca1a58ae3": {
+          "location": "ClientSideExtension.ListViewCommandSet.CommandBar"
+        }
+      }
+    },
+    "masterSiteSyncLog": {
+      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "fieldCustomizers": {
+        "InternalFieldName": {
+          "id": "039f1e46-eeca-4f82-83bd-c432ed5228a9"
+        }
+      }
+    },
+    "masterSiteSyncResult": {
+      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "fieldCustomizers": {
+        "InternalFieldName": {
+          "id": "9b1fda6d-8101-418b-b489-c1e70afbcfbb"
+        }
+      }
+    },
+    "securityReplicationLog": {
+      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "fieldCustomizers": {
+        "InternalFieldName": {
+          "id": "128c303b-5a79-4dc0-a9bc-57fa588e6136"
+        }
+      }
+    },
+    "securityReplicationResult": {
+      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "fieldCustomizers": {
+        "InternalFieldName": {
+          "id": "3903babb-bc1e-492c-bfb9-c56a93607b21"
+        }
+      }
+    }
+  }
+}

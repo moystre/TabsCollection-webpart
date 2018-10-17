@@ -1,0 +1,57 @@
+@import './Base.module.scss';
+
+.workpointUI {
+  box-sizing: border-box;
+  font-size: $baseFontSize;
+  & * {
+    box-sizing: border-box;
+  }
+
+  position: relative;
+  width: 100%;
+}
+
+.navbar {
+  background-color: $navbarBackgroundColor;
+  // Example for using SharePoint theming
+  //background-color: "[theme: themePrimary, default: #f4f4f4]";
+  //border-bottom-color: "[theme: themeAccent, default: #757575]";
+  font-family: $baseFontFamily;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: $navbarBorderColor;
+  width: 100%;
+
+  display: flex;
+
+  // Show parts of Navbar (Breadcrumbmenu & Toolmenu) at each end of the Navbar.
+  justify-content: flex-start;
+
+  // Do not let parts of Navbar wrap under each other.
+  flex-flow: row nowrap;
+}
+
+%navBarMessage {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.loadingIndicator {
+  @extend %navBarMessage;
+}
+
+.noLicense {
+  @extend %navBarMessage;
+}
+
+.message {
+  margin: auto;
+}
+
+.spinner {
+  margin: auto;
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "7894de77-b834-4d03-a536-cb3ee094b1f8",
+  "alias": "WorkPointListViewWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "b44c1367-b184-4098-86b0-675552243ce0", // WorkPoint group, when it is supported
+    "group": { "default": "WorkPoint 365" },
+    "title": { "default": "Tabs Collection", "da-dk": "Tabs Collection" },
+    "description": { "default": "Shows list content from a list on an entity, an entity's parent, or from the root site of the WorkPoint 365 solution. Can be used in conjuntion with list views and using WorkPoint 365 entity filtering.", "da-dk": "Viser indhold fra en liste på en entitet, en entitets forældr, eller fra roden af WorkPoint 365 løsningen. Kan benyttes sammen med listevisninger og kan filtreres med WorkPoint 365 entitets filtrering." },
+    "officeFabricIconFontName": "CustomList",
+    "properties": {
+      "title": "Tabs Collection",
+      "scope": "currentSite",
+      "list": "",
+      "view": "",
+      "lookupField": "0",
+      "filteringField": "0",
+      "filteringEntityField": "0",
+      "sorting": false,
+      "filtering": false,
+      "grouping": false,
+      "groupingField": "",
+      "showCount": false,
+      "showPercentage": false,
+      "displayAsStage": "none"
+    }
+  }]
+}

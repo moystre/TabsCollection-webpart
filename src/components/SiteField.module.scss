@@ -1,0 +1,19 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+.field {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  padding: 1px 4px;
+  color: $ms-color-neutralPrimary;
+}
+
+.backendWarning {
+  @extend .field;
+  color: #ff8800;
+}
+
+.frontendWarning {
+  @extend .field;
+  color: #7c8a5e;
+}

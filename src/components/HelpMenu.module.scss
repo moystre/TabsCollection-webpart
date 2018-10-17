@@ -1,0 +1,21 @@
+
+.container {
+  text-align: center;
+}
+
+.needHelp {
+  font-size: 0.9em;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.helpMenuItem {
+  font-size: 1em;
+  display: block;
+  
+  :global {
+    .ms-Icon {
+      font-size: 1em;
+    }
+  }
+}

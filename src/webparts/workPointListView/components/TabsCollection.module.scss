@@ -1,0 +1,265 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+
+
+.tabsRow  {
+  white-space: nowrap;
+ // overflow: scroll;
+ // overflow-y: auto;
+}
+
+.tabsRow > div {
+  display: inline-block;
+//  float: left;
+}
+
+.listTab {
+  white-space: normal;
+  padding-left: 4px;
+  padding-right: 4px;
+  -webkit-appearance: none;
+}
+/* .listTab :hover {
+  -webkit-text-fill-color: rgb(140, 140, 140);
+  -webkit-appearance: none;
+} */
+
+.listTabSelected {
+  white-space: normal;
+  padding-left: 4px;
+  padding-right: 4px;
+  -webkit-appearance: none;
+  background-color: rgb(214, 214, 214);
+}
+
+.listTabSelected :hover {
+  -webkit-text-fill-color: rgb(140, 140, 140);
+}
+
+.tabsCollection {
+  .container {
+    min-height: 80px;
+    position: relative;
+    overflow: auto;
+  }
+
+  .title {
+    @include ms-font-xl;
+    margin-bottom: 10px;
+  }
+  .row{
+    @include ms-Grid-row;
+    overflow: auto;
+  }
+  .whiteBackground{
+    padding: 8px;
+    background-color: #fff;
+  }
+
+  .linkTitle {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .noSettings {
+    line-height: 80px;
+    width: 100%;
+    position: relative;
+  }
+
+  .tabStyling{
+    padding-top: 15px;
+  }
+
+  .msPaging {
+    float: right;
+    height: 40px;
+    margin-top: 15px;
+    button {
+      padding: 8px;
+      min-width: 18px;
+      margin-right: 6px;
+    }
+  }
+
+  .msPagingInfo {
+    line-height: 32px;
+    padding: 0px 5px 2px 5px;
+    margin-right: 20px;
+  }  
+}
+
+:global {
+  .ms-Pivot{
+    .ms-Pivot-link {      
+      height: auto !important;
+      line-height: auto !important;
+      min-width: 70px !important;      
+      margin-right: 0 !important;
+      margin-bottom: -2px;
+    }
+
+    .ms-Pivot-text {
+      color: $ms-color-themePrimary;
+    }
+    
+    .is-selected::before{
+      border-bottom: none !important;  
+    }
+  }
+
+  .tabbedView .ms-Pivot .is-selected{
+    border-top: 4px solid "[theme: themePrimary, default: #0078d7]";
+    border-top-color: "[theme: themePrimary, default: #0078d7]";
+    border-bottom: none !important;
+    background-color: "[theme:primaryBackground, default:#0078d7]";
+    color: "[theme:primaryText, default:#0078d7]";
+  }
+
+  .stageView .ms-Pivot .ms-Pivot-link{
+    padding-right: 43px;
+    padding-left: 0;
+  }
+
+  .tabbedView .ms-Pivot .ms-Pivot-link{
+    border-right: 1px solid "[theme: themePrimary, default: #0078d7]";
+    border-right-color: "[theme: themePrimary, default: #0078d7]";
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .stageView .ms-Pivot .is-selected {
+    border-bottom: none !important;
+  }
+
+  .stageView .ms-Pivot .is-selected .stageHeader {
+    border-top: 4px solid "[theme: themePrimary, default: #0078d7]";    
+    border-top-color: "[theme: themePrimary, default: #0078d7]";
+  }
+
+  .stageView .ms-Pivot .is-selected {
+    .arrow_box:after {
+      border-left-color:"[theme:primaryBackground, default:#0078d7]" !important;
+    }
+    .arrow_box {
+      background-color: "[theme:primaryBackground, default:#0078d7]";
+      color: "[theme:primaryText, default:#0078d7]";
+    }
+  }
+
+  .wp-hoveringItem {    
+    .contextMenuButton {
+      visibility: hidden;
+    }
+    &:hover {
+      .contextMenuButton {
+        visibility: visible;
+      }
+    }
+  }
+
+  .contextMenuButton {
+    position: absolute !important;
+    right: 10px;
+    top: 5px;
+  }
+
+  .linkTitleColumn {
+    width: calc(100% - 40px);
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .tabHeader {
+    display: block;
+    min-width: 100px;
+    position: relative;
+    color: "[theme:themePrimary, default:#0078d7]";
+  } 
+
+  .stageHeader {
+    display: block;
+    min-width: 60px;
+    position: relative;
+    padding-bottom: 2px;
+    padding-left: 8px;
+    padding-right: 12px;
+    color: "[theme:themePrimary, default:#0078d7]";
+  }
+
+  .tabHeaderIcon{
+    position: absolute;
+    right: 0;
+    top: 23px;
+  }
+  
+  .arrow_box {
+    position: relative;
+    background: #fff;
+  }
+
+  .arrow_box:after, .arrow_box:before {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  
+  .arrow_box_medium:after {
+    /*border-color: #f4f4f4;*/
+    border-left-color: #fff;
+    border-width: 41px;
+    margin-top: -41px;
+  }  
+
+  .arrow_box_medium:before {
+    border-left-color: gray;
+    border-width: 42px;
+    margin-top: -42px;
+  }
+
+  .arrow_box_small:after {
+    border-left-color: #fff;
+    border-width: 20px;
+    margin-top: -20px;
+  }
+
+  .arrow_box_small:before {
+    border-left-color: gray;
+    border-width: 21px;
+    margin-top: -21px;
+  }
+
+  /*Preview callout*/
+  .ms-DocumentCallout-callout {
+    max-width: 500px;
+    width: 450px;
+  }
+  
+  .ms-DocumentCallout-inner {
+    height: 100%;
+    padding: 0 24px 24px;
+    overflow: auto;
+  }
+
+  .ms-DocumentCallout-content{
+    text-align: center;
+  }
+
+  .ms-DocumentCallout-header {
+    padding: 18px 24px 12px;
+  }
+
+  .ms-DocumentCallout-title {
+    margin: 0;
+    @include ms-font-l;
+    color: $ms-color-neutralPrimary;
+    font-weight: $ms-font-weight-semilight;
+  }
+}

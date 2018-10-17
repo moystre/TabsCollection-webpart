@@ -1,0 +1,12 @@
+[
+    {
+        "name": "WorkPoint365",
+        "id": "8129904a-6925-4414-8d10-6d1d338a1b84",
+        "url": "https://localhost:44302"
+    },
+    {
+        "name": "EMM365",
+        "id": "2d1103ee-a86e-4501-83ae-5f1822cf368f",
+        "url": "https://emm365webapidev.azurewebsites.net/api/v1"
+    }
+]

@@ -1,0 +1,17 @@
+%result {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  padding: 1px 4px;
+}
+
+.success {
+  @extend %result;
+  color: green;
+}
+
+.warning {
+  @extend %result;
+  color: #ff8800;
+}

@@ -1,0 +1,43 @@
+.wizardDialog {
+  border: none;
+  position: relative;
+}
+
+/**
+ * Use the .ms-Dialog-main global class to always override with WorkPoint values
+ */
+.wizardContainer,
+:global(.ms-Dialog-main).wizardContainer {
+  max-width: none;
+  overflow: hidden;
+  height: auto;
+  position: static;
+
+  :global(.ms-Dialog-inner) {
+    padding: 0;
+  }
+}
+
+.dialogContentOverrides {
+
+  :global(.ms-Dialog-header) {
+    display: none;
+  }
+}
+
+.closeButton {
+  color: #818181;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  cursor: pointer;
+  transition: color 0.2s ease-out;
+
+  &:hover {
+    color: #f6ad51;
+  }
+
+  &:active {
+    color: #818181;
+  }
+}

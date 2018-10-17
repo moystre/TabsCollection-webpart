@@ -1,0 +1,70 @@
+@import './Base.module.scss';
+
+.activityMenu {
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+
+  /* Scrollbar design */
+  &::-webkit-scrollbar {  
+    height: 3px;
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c8c8c8;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+
+.activityItem {
+  font-size: 1em;
+  padding-top: 3px;
+}
+
+.nameText {
+  font-weight: 600;
+}
+
+.documentText {
+  font-weight: 600;
+}
+
+.timeText {
+  font-weight: 400;
+  color: #878787;
+}
+
+%info {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin: auto;
+}
+
+.loadingIndicator {
+  @extend %info;
+}
+
+.spinner {
+  margin: auto;
+}
+
+.noActivityContainer {
+  @extend %info
+}
+
+.noActivity {
+  margin: auto;
+}
+
+@include largerthantablet {
+  .activityMenu {
+    border-bottom: 1px solid $panelBorderColor;
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+}

@@ -1,0 +1,26 @@
+@import './Base.module.scss';
+
+// We need to define this class here, as it is the base for <Layer> controls, which are rendered outside of 'workpointUI' context
+.overlayWrapper {
+  box-sizing: border-box;
+  font-size: $baseFontSize;
+  font-family: $baseFontFamily;
+  height: 100%;
+  min-width: 250px;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.overlayContent {
+  height: 100%;
+  background-color: $foldoutBackgroundColor;
+  box-shadow: 0 6px 16px 0px #b1b1b1;
+}
+
+.homeMenu {
+  font-size: $navbarFontSize;
+  display: flex;
+  flex-flow: column nowrap;
+}

@@ -1,0 +1,49 @@
+@import './Base.module.scss';
+
+.text {
+  @extend %navigationItemText;
+  display: none;
+
+  @include desktop {
+    display: inline;
+  }
+}
+
+.breadcrumb {
+  @extend %flexInline;
+  user-select: none;
+  position: relative;
+  height: 37px;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color .5s cubic-bezier(.1, .9, .2, 1);
+
+  &:hover {
+    border-bottom-color: $brandOrange;
+  }
+}
+
+.breadcrumbActive {
+  @extend .breadcrumb;
+  font-weight: 500;
+  color: $navbarFontSecondaryColor;
+  border-bottom-color: $brandOrange;
+
+  .text {
+    display: inline;
+  }
+}
+
+.iconAndText {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 12px 0 15px;
+}
+
+.breadcrumbDivider {
+  color: $indicatorIconColorDarker;
+  font-size: 8px;
+  width: 6px;
+  align-self: center;
+}

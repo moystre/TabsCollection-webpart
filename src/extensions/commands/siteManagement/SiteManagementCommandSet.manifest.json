@@ -1,0 +1,22 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx/command-set-extension-manifest.schema.json",
+
+  "id": "0ddf279d-6a54-46ef-aab5-6bdca1a58ae3",
+  "alias": "SiteManagementCommandSet",
+  "componentType": "Extension",
+  "extensionType": "ListViewCommandSet",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+
+  "items": {
+    "ADD_SITE_TO_ENTITY": {
+      "title": { "default": "Create site", "da-dk": "Opret site" },
+      "type": "command"
+    },
+    "REMOVE_SITE_FROM_ENTITY": {
+      "title": { "default": "Delete site", "da-dk": "Slet site" },
+      "type": "command"
+    }
+  }
+}

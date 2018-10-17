@@ -1,0 +1,90 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "work-point-application-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/workPoint/WorkPointApplicationCustomizer.js",
+          "manifest": "./src/extensions/workPoint/WorkPointApplicationCustomizer.manifest.json"
+        }
+      ]
+    },
+    "site-field-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/fields/site/SiteFieldCustomizer.js",
+          "manifest": "./src/extensions/fields/site/SiteFieldCustomizer.manifest.json"
+        }
+      ]
+    },
+    "template-library-command-set": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/commands/addTemplate/TemplateLibraryCommandSet.js",
+          "manifest": "./src/extensions/commands/addTemplate/TemplateLibraryCommandSet.manifest.json"
+        }
+      ]
+    },
+    "template-library-field-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/fields/editTemplate/TemplateLibraryFieldCustomizer.js",
+          "manifest": "./src/extensions/fields/editTemplate/TemplateLibraryFieldCustomizer.manifest.json"
+        }
+      ]
+    },
+    "list-view-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/workPointListView/TabsCollection.WebPart.js",
+          "manifest": "./src/webparts/workPointListView/TabsCollection.manifest.json"
+        }
+      ]
+    },
+    "site-management-command-set": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/commands/siteManagement/SiteManagementCommandSet.js",
+          "manifest": "./src/extensions/commands/siteManagement/SiteManagementCommandSet.manifest.json"
+        }
+      ]
+    },
+    "master-site-sync-log-field-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/fields/masterSiteSync/MasterSiteSyncLogFieldCustomizer.js",
+          "manifest": "./src/extensions/fields/masterSiteSync/MasterSiteSyncLogFieldCustomizer.manifest.json"
+        }
+      ]
+    },
+    "master-site-sync-result-field-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/fields/masterSiteSync/MasterSiteSyncResultFieldCustomizer.js",
+          "manifest": "./src/extensions/fields/masterSiteSync/MasterSiteSyncResultFieldCustomizer.manifest.json"
+        }
+      ]
+    },
+    "security-replication-log-field-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/fields/securityReplication/SecurityReplicationLogFieldCustomizer.js",
+          "manifest": "./src/extensions/fields/securityReplication/SecurityReplicationLogFieldCustomizer.manifest.json"
+        }
+      ]
+    },
+    "security-replication-result-field-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/fields/securityReplication/SecurityReplicationResultFieldCustomizer.js",
+          "manifest": "./src/extensions/fields/securityReplication/SecurityReplicationResultFieldCustomizer.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "WorkPointStrings": "lib/loc/{locale}.js"
+  }
+}

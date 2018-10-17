@@ -1,0 +1,118 @@
+// Variables
+$baseFontSize: 12px;
+$baseFontFamily: 'Segoe UI',
+Tahoma,
+Geneva,
+Verdana,
+sans-serif;
+
+$navbarBackgroundColor: #ffffff;
+$navbarBorderColor: #ececec;
+$navbarBorderActiveColor: #659bce;
+//$navbarFontPrimaryColor: #9d9d9d;
+$navbarFontPrimaryColor: #333333;
+$navbarFontSecondaryColor: #808080;
+$navbarFontSize: 1.2em;
+
+$panelBackgroundColor: #ffffff;
+$panelBorderColor: #ececec;
+$panelFontPrimaryColor: #333333;
+$panelFontSecondaryColor: #808080;
+$panelFontHighlightColor: #409dd2;
+
+$indicatorIconColor: #c6c6c6;
+$indicatorIconColorDarker: #977c7c;
+$foldoutBackgroundColor: #ffffff;
+$foldoutBorderColor: #cccccc;
+$highlightedBackground: #f1f4f7;
+$highlightedBackgroundAccent: #f9f9f9;
+$highlightedBackgroundAccentDark: #dfdfdf;
+
+// Brand colors
+$brandOrange: #f7941e;
+$brandGrey: #5e5b5b;
+$brandBlue: #1a567f;
+
+// This color matches the background color from the Express Panel in the WorkPointWeb project.
+$expressPanelBackgroundColor: #f4f4f4;
+
+// Abstract extendable classes
+%navigationItem {
+  font-weight: 300;
+  cursor: pointer;
+  color: $navbarFontPrimaryColor;
+}
+
+%flexInline {
+  @extend %navigationItem;
+  height: 100%;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+}
+
+%flex {
+  @extend %navigationItem;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+}
+
+%navigationItemText {
+  margin-left: 8px;
+}
+
+%navigationBarMenuGroup {
+  font-size: $navbarFontSize;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+  height: 36px;
+}
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin largerthantablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin print {
+  @media print {
+    @content;
+  }
+}

@@ -1,0 +1,70 @@
+@import './Base.module.scss';
+
+.panel {
+  height: 100%;
+  right: 0;
+  position: fixed;
+}
+
+.button {
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color .2s ease-out;
+
+  .expressLogo {
+    margin: auto;
+    padding-left: 7px;
+    padding-right: 7px;
+    height: 22px;
+  }
+}
+
+.openButton {
+  @extend .button;
+  display: inline-flex;
+
+  &:hover {
+    background-color: #8acbf1;
+  }
+
+  &:active {
+    background-color: #f1f4f7;
+  }
+}
+
+.closeButton {
+  @extend .button;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 34px;
+  display: flex;
+}
+
+// We need to define this class here, as it is the base for <Layer> controls, which are rendered outside of 'workpointUI' context
+.overlayWrapper {
+  box-sizing: border-box;
+  font-size: $baseFontSize;
+  font-family: $baseFontFamily;
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.frameContainer {
+  @extend .overlayWrapper;
+  border: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: $expressPanelBackgroundColor;
+}
+
+.activeFrameContainer {
+  @extend .frameContainer;
+  box-shadow: 0 6px 16px 0px #b1b1b1;
+}
+
+.iframeElement {
+  background-color: $expressPanelBackgroundColor;
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Tabs Collection",
+    "id": "ef77d173-14f4-4806-a005-3a799acc4698",
+    "version": "1.0.0.2",
+    "includeClientSideAssets": false,
+    "skipFeatureDeployment": true,
+    "webApiPermissionRequests": [
+      {
+        "resource": "WorkPoint365.WebAPI.DevLocal",
+        "scope": "user_impersonation"
+      },
+      {
+        "resource": "EMM365.WebAPI.Dev.New",
+        "scope": "user_impersonation"
+      },
+      {
+        "resource": "Windows Azure Active Directory",
+        "scope": "User.Read"
+      }
+    ],
+    "supportedLocales": [
+      "en-US",
+      "da-DK",
+      "nb-NO",
+      "nl-NL"
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/workpointui.sppkg"
+  }
+}
