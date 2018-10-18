@@ -165,7 +165,7 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
         this.loadListOptions().then((listOptions: IDropdownOption[]) => {
           this.lists = listOptions; // her
           const prevList: string = this.tabProperties[tabIndex].list;
-          this.tabProperties[tabIndex].list = listOptions[4].key as string;
+          this.tabProperties[tabIndex].list = listOptions[tabIndex].key as string;
           this.tabProperties[tabIndex].listName = listOptions[tabIndex].text;
 
           this.onPropertyPaneFieldChanged('list' + tabIndex, prevList, this.tabProperties[tabIndex].list);
@@ -176,21 +176,22 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
       });
       return;
     }
+
+    //set it on a default in prev scope --- +
     if (propertyPath.indexOf('list') !== -1 && newValue) {
       tabIndex = Number(propertyPath.substring(4));
 
       if (this.propertyPaneGroups[tabIndex].groupName) {
         if (this.propertyPaneGroups[tabIndex].groupName.toString().indexOf('Tab') !== -1) {
 
-          this.loadListOptions().then((listOptions: IDropdownOption[]) => {
             var listName;
-            listOptions.forEach(list => {
+            this.lists.forEach(list => {
               if (list.key == newValue) {
                 listName = list.text;
                 this.properties.propertyPath = listName;
               }
             });
-          });
+   
           this.tabProperties[tabIndex].list = newValue;
           this.tabProperties[tabIndex].title = this.propertyPaneGroups[tabIndex].groupName;
           this.tabProperties[tabIndex].listName = this.properties.propertyPath;
@@ -326,11 +327,11 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
         items: []
       });
 
-      this.loadListOptions().then((listOptions: IDropdownOption[]) => {
+/*       this.loadListOptions().then((listOptions: IDropdownOption[]) => {
         this.lists = listOptions;
         this.tabProperties[tabIndex].list = listOptions[0].key as string;
         this.tabProperties[tabIndex].listName = listOptions[0].text;
-      });
+      }); */
     }
   }
 
