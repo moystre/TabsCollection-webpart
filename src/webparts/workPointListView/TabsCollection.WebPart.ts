@@ -166,10 +166,16 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
         this.context.propertyPane.refresh();
 
         this.loadListOptions().then((listOptions: IDropdownOption[]) => {
-          this.lists = listOptions;
+          this.lists = listOptions; // her
           const prevList: string = this.tabProperties[tabIndex].list;
-          this.tabProperties[tabIndex].list = listOptions[0].key as string;
-          this.tabProperties[tabIndex].listName = listOptions[0].text;
+          this.tabProperties[tabIndex].list = listOptions[4].key as string;
+
+          console.log('ØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØ');
+          console.log(listOptions[4].text);
+          console.log(listOptions[4].key);
+          console.log(this.tabProperties[tabIndex].list);
+
+          this.tabProperties[tabIndex].listName = listOptions[4].text;
           this.onPropertyPaneFieldChanged('list' + tabIndex, prevList, this.tabProperties[tabIndex].list);
 
           this.context.statusRenderer.clearLoadingIndicator(this.domElement);
