@@ -520,14 +520,14 @@ export class TabsCollection extends React.Component<ITabsCollectionProps, any> {
                 this.state.activeTab == this.getTabIndex(tab.title) ?
                 <PrimaryButton
                 className={styles.listTab}
-                text={tab.title}
+                text={tab.listName? tab.listName : tab.title}
                 onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
                   this.selectTab(tab.title);
                 }} />
                 :
                 <DefaultButton
                   className={styles.listTabSelected}
-                  text={tab.title}
+                  text={tab.listName? tab.listName : tab.title}
                   onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
                     this.selectTab(tab.title);
                   }} /> 

@@ -170,12 +170,12 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
           const prevList: string = this.tabProperties[tabIndex].list;
           this.tabProperties[tabIndex].list = listOptions[4].key as string;
 
-          console.log('ØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØ');
-          console.log(listOptions[4].text);
-          console.log(listOptions[4].key);
+          console.log('ØØØØØØØØØØ');
+          console.log(listOptions[tabIndex].text);
+          console.log(listOptions[tabIndex].key);
           console.log(this.tabProperties[tabIndex].list);
 
-          this.tabProperties[tabIndex].listName = listOptions[4].text;
+          this.tabProperties[tabIndex].listName = listOptions[tabIndex].text;
           this.onPropertyPaneFieldChanged('list' + tabIndex, prevList, this.tabProperties[tabIndex].list);
 
           this.context.statusRenderer.clearLoadingIndicator(this.domElement);
@@ -192,6 +192,8 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
         if (this.propertyPaneGroups[tabIndex].groupName.toString().indexOf('Tab') !== -1) {
           this.tabProperties[tabIndex].list = newValue;
           this.tabProperties[tabIndex].title = this.propertyPaneGroups[tabIndex].groupName;
+          this.tabProperties[tabIndex].listName = newValue;
+          console.log(newValue);
         }
       }
       super.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
