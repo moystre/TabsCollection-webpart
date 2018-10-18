@@ -41,7 +41,7 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
   public finder = '##### ';
 
   public async onInit(): Promise<void> {
-    console.log(this.finder + 'onInit');
+    //  console.log(this.finder + 'onInit');
     const siteAbsoluteUrl: string = this.context.pageContext.site.absoluteUrl;
     const webAbsoluteUrl: string = this.context.pageContext.web.absoluteUrl;
     this.solutionAbsoluteURL = await DataService.getRootSiteCollectionUrl(siteAbsoluteUrl);
@@ -77,7 +77,7 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
   }
 
   public render(): void {
-    console.log(this.finder + 'render');
+    //    console.log(this.finder + 'render');
 
     if (this._userLicenseStatus && this._userLicenseStatus.Status === UserLicenseStatus.None) {
       this.domElement.innerHTML = strings.YouHaveNoWorkPoint365License;
@@ -103,7 +103,7 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
   }
 
   protected async onPropertyPaneConfigurationStart(): Promise<void> {
-    console.log(this.finder + 'onPropertyPaneConfigurationStart');
+    //    console.log(this.finder + 'onPropertyPaneConfigurationStart');
     var tabIndex = this.tabProperties.length - 1;
 
     if (this.solutionAbsoluteURL === this.context.pageContext.web.absoluteUrl) {
@@ -132,7 +132,7 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
         const entityFieldOptions: IDropdownOption[] = await this.loadEntityFieldOptions();
         this.entityFieldOptions = entityFieldOptions;
       }
-    } catch (exception) { 
+    } catch (exception) {
       console.log(exception);
     }
     this.context.propertyPane.refresh();
@@ -141,43 +141,34 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
   }
 
   protected async onPropertyPaneFieldChanged(propertyPath: string, oldValue: any, newValue: any): Promise<void> {
-    console.log(this.finder + 'onPropertyPaneFieldChanged');
+    //    console.log(this.finder + 'onPropertyPaneFieldChanged');
     var tabIndex: number = 0;
 
     if (propertyPath.indexOf('scope') !== -1) {
       tabIndex = Number(propertyPath.substring(5));
+      console.log
 
       this.getTargetWebURL(tabIndex).then((targetWebUrl: string) => {
         this.targetWebUrl = targetWebUrl;
         this.targetWeb = new Web(targetWebUrl);
-
         super.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
 
         const previousList: string = this.tabProperties[tabIndex].list;
-
         this.lists = [];
         this.tabViewOptions[tabIndex].items = [];
-
         this.tabProperties[tabIndex].list = undefined;
         this.tabProperties[tabIndex].view = undefined;
 
         this.onPropertyPaneFieldChanged('list' + tabIndex, previousList, this.tabProperties[tabIndex].list);
-
         this.context.propertyPane.refresh();
 
         this.loadListOptions().then((listOptions: IDropdownOption[]) => {
           this.lists = listOptions; // her
           const prevList: string = this.tabProperties[tabIndex].list;
           this.tabProperties[tabIndex].list = listOptions[4].key as string;
-
-          console.log('ØØØØØØØØØØ');
-          console.log(listOptions[tabIndex].text);
-          console.log(listOptions[tabIndex].key);
-          console.log(this.tabProperties[tabIndex].list);
-
           this.tabProperties[tabIndex].listName = listOptions[tabIndex].text;
-          this.onPropertyPaneFieldChanged('list' + tabIndex, prevList, this.tabProperties[tabIndex].list);
 
+          this.onPropertyPaneFieldChanged('list' + tabIndex, prevList, this.tabProperties[tabIndex].list);
           this.context.statusRenderer.clearLoadingIndicator(this.domElement);
           this.render();
           this.context.propertyPane.refresh();
@@ -190,17 +181,28 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
 
       if (this.propertyPaneGroups[tabIndex].groupName) {
         if (this.propertyPaneGroups[tabIndex].groupName.toString().indexOf('Tab') !== -1) {
+
+          this.loadListOptions().then((listOptions: IDropdownOption[]) => {
+            var listName;
+            listOptions.forEach(list => {
+              if (list.key == newValue) {
+                listName = list.text;
+                this.properties.propertyPath = listName;
+              }
+            });
+          });
           this.tabProperties[tabIndex].list = newValue;
           this.tabProperties[tabIndex].title = this.propertyPaneGroups[tabIndex].groupName;
-          this.tabProperties[tabIndex].listName = newValue;
-          console.log(newValue);
+          this.tabProperties[tabIndex].listName = this.properties.propertyPath;
+          this.properties.propertyPath = newValue;
         }
       }
+      this.render();
+
       super.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
       const previousView: string = this.tabProperties[tabIndex].view;
       this.tabProperties[tabIndex].view = undefined;
       this.tabViewOptions[tabIndex].items = [];
-
       this.onPropertyPaneFieldChanged('view' + tabIndex, previousView, this.tabProperties[tabIndex].view);
 
       this.loadViewOptions(tabIndex).then((viewOptions: IDropdownOption[]) => {
@@ -222,7 +224,7 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
-    console.log(this.finder + 'getPropertyPaneConfiguration');
+    //  console.log(this.finder + 'getPropertyPaneConfiguration');
 
     let titleGroup = [];
     let buttonsGroup = [];
@@ -454,7 +456,7 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
   }
 
   private needsConfiguration = (tabIndex: number): boolean => {
-    console.log(this.finder + 'needsConfiguration');
+    //  console.log(this.finder + 'needsConfiguration');
     var tabIndex = tabIndex - 1;
     return this.tabProperties[tabIndex].list === null ||
       this.tabProperties[tabIndex].list === undefined ||
