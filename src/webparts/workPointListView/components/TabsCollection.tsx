@@ -323,7 +323,9 @@ export class Tab extends React.Component<ITabsCollectionProps, ITabState> {
     if (!caseInsensitiveStringCompare(this.props.solutionAbsoluteURL, this.props.context.pageContext.web.absoluteUrl)) {
       entityItemForFiltering = await DataService.loadEntityInformation(this.props.solutionAbsoluteURL, this.props.entityListItemId, this.props.entityListId);
     }
-    let list = await web.lists.getById(webpartSettings.list).select('BaseTemplate,RootFolder/ServerRelativeUrl').expand('RootFolder').get();
+    if (webpartSettings.list) {
+    var list = await web.lists.getById(webpartSettings.list).select('BaseTemplate,RootFolder/ServerRelativeUrl').expand('RootFolder').get();
+    }
     let view: BasicViewObject = await web.lists.getById(webpartSettings.list).getView(webpartSettings.view).get();
     let viewFields = await web.lists.getById(webpartSettings.list).getView(webpartSettings.view).fields.get();
     let fields = await web.lists.getById(webpartSettings.list).fields.get();

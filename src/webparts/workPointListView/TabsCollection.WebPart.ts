@@ -41,7 +41,7 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
   public finder = '##### ';
 
   public async onInit(): Promise<void> {
-   console.log(this.finder + 'onInit');
+    console.log(this.finder + 'onInit');
     const siteAbsoluteUrl: string = this.context.pageContext.site.absoluteUrl;
     const webAbsoluteUrl: string = this.context.pageContext.web.absoluteUrl;
     this.solutionAbsoluteURL = await DataService.getRootSiteCollectionUrl(siteAbsoluteUrl);
@@ -50,16 +50,16 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
     this.entityWebProperties = entityWebProperties;
 
     try {
-        this.tabProperties[1] = {
-          scope: 'rootSite',
-          list: '',
-          title: 'Tab' + 1,
-          view: '',
-          listName: ''
-        };
-        this.tabViewOptions[1] = {
-          items: []
-        };
+      this.tabProperties[1] = {
+        scope: 'rootSite',
+        list: '',
+        title: 'Tab' + 1,
+        view: '',
+        listName: ''
+      };
+      this.tabViewOptions[1] = {
+        items: []
+      };
     } catch (exception) {
       console.log(exception);
     }
@@ -162,10 +162,6 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
         this.loadListOptions().then((listOptions: IDropdownOption[]) => {
           this.lists = listOptions; // her
           const prevList: string = this.tabProperties[tabIndex].list;
-          this.tabProperties[tabIndex].list = listOptions[tabIndex].key as string;
-          this.tabProperties[tabIndex].listName = listOptions[tabIndex].text;
-          this.tabProperties[tabIndex].title = this.propertyPaneGroups[tabIndex].groupName;
-
           this.onPropertyPaneFieldChanged('list' + tabIndex, prevList, this.tabProperties[tabIndex].list);
           this.context.statusRenderer.clearLoadingIndicator(this.domElement);
           this.render();
@@ -175,23 +171,22 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
       return;
     }
 
-    //set it on a default in prev scope --- +
     if (propertyPath.indexOf('list') !== -1 && newValue) {
       tabIndex = Number(propertyPath.substring(4));
 
       if (this.propertyPaneGroups[tabIndex].groupName) {
         if (this.propertyPaneGroups[tabIndex].groupName.toString().indexOf('Tab') !== -1) {
 
-            var listName;
-            this.lists.forEach(list => {
-              if (list.key == newValue) {
-                listName = list.text;
-                this.properties.propertyPath = listName;
-              }
-            });
-   
+          var listName;
+          this.lists.forEach(list => {
+            if (list.key == newValue) {
+              listName = list.text;
+              this.properties.propertyPath = listName;
+            }
+          });
+
           this.tabProperties[tabIndex].list = newValue;
-        
+
           this.tabProperties[tabIndex].listName = this.properties.propertyPath;
           this.properties.propertyPath = newValue;
         }
@@ -207,7 +202,9 @@ export default class TabsCollectionWebart extends BaseClientSideWebPart<any> {
       this.loadViewOptions(tabIndex).then((viewOptions: IDropdownOption[]) => {
         try {
           this.tabViewOptions[tabIndex].items = viewOptions;
-          this.tabProperties[tabIndex].view = viewOptions[0].key as string;
+          if (viewOptions[0]) {
+            this.tabProperties[tabIndex].view = viewOptions[0].key as string;
+          }
           this.onPropertyPaneFieldChanged('view' + tabIndex, undefined, this.tabProperties[tabIndex].view);
           this.context.propertyPane.refresh();
           this.context.statusRenderer.clearLoadingIndicator(this.domElement);
